@@ -296,14 +296,21 @@ const flightReservations = [
 ];
 
 // Usa el método forEach para iterar por cada uno de los vuelos y mostrarlos por consola
+flightReservations.forEach(fight => console.log(fight));
 
 // Usa el método forEach para mostrar UNICAMENTE el pasajero de cada uno de lo vuelos
+flightReservations.forEach(fight => console.log(fight.passenger));
 
 // USa el método find para encontrar el vuelo número 'AA456'. Luego, muestra por consola el precio total de este vuelo
+const priceFlight = flightReservations.find(fight => (fight.flightNumber ==="AA456"));
+console.log(priceFlight.totalPrice);
 
 // Usa el método find para encontrar el vuelo que ha reservado el señor bob.johnson@example.com. Muestra el objeto entero
+const srBob = flightReservations.find(fight => fight.passenger.contactInfo.email.includes("bob.johnson@example.com"));
+console.log(srBob);
 
 // Usa el método some para averiguar si algún vuelo tiene como destino el aeropuerto de LPA GRAN CANARIA
+
 
 // Usa el método every para comprobar si todos los vuelos están confirmados (isConfirmed)
 

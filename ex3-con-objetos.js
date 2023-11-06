@@ -302,22 +302,37 @@ flightReservations.forEach(fight => console.log(fight));
 flightReservations.forEach(fight => console.log(fight.passenger));
 
 // USa el método find para encontrar el vuelo número 'AA456'. Luego, muestra por consola el precio total de este vuelo
-const priceFlight = flightReservations.find(fight => (fight.flightNumber ==="AA456"));
-console.log(priceFlight.totalPrice);
+const priceFlight = flightReservations.find(fight => (fight.flightNumber === "AA456"));
+//console.log(priceFlight.totalPrice);
 
 // Usa el método find para encontrar el vuelo que ha reservado el señor bob.johnson@example.com. Muestra el objeto entero
 const srBob = flightReservations.find(fight => fight.passenger.contactInfo.email.includes("bob.johnson@example.com"));
-console.log(srBob);
+//console.log(srBob);
 
 // Usa el método some para averiguar si algún vuelo tiene como destino el aeropuerto de LPA GRAN CANARIA
-
+const aeroport = flightReservations.some(flight => flight.arrival.airport ==="LPA GRAN CANARIA");
+//console.log(aeroport);
 
 // Usa el método every para comprobar si todos los vuelos están confirmados (isConfirmed)
+const isConfirmed = flightReservations.every(flight => flight.isConfirmed);
+//console.log(isConfirmed);
 
 // Usa el método filter para obtener todos los vuelos que tienen la puerta de embarque 'D5'
+const gate = flightReservations.filter(flight => flight.gate ==="D5");
+//console.log(gate);
 
 // Usa el método filter para obtener todos los vuelos que incluyen menús con comida Vegan. BONUS: Muestra por consola el nombre de la aerolínea
+const menuVegan = flightReservations.filter(flight => flight.specialMeals.includes("Vegan"));
+console.log(menuVegan[0].airline);
+
+// menuVegan.forEach(flight => {
+//   console.log(flight.airline);
+// });
 
 // Usa el método map para convertir cada objeto en un string con el formato 'numero de vuelo'-'compañía area'´Ejemplo : "AA456-American Airlines"
+const mapFlight = flightReservations.map(flight => `${flight.flightNumber} - ${flight.airline}`);
+console.log(mapFlight);
 
 // DIFICIL. USA el método reduce para sumar el conjunto total de puntos obtenidos de loyalyProgram de todos los tickets
+const total = flightReservations.reduce((total, flight) => total + flight.loyaltyProgram.points, 0);
+console.log(total);
